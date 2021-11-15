@@ -23,7 +23,7 @@ python3 ../main_pretrain.py \
     --classifier_lr 0.1 \
     --weight_decay 1e-5 \
     --batch_size 128 \
-    --num_workers 4 \
+    --num_workers 0 \
     --brightness 0.4 \
     --contrast 0.4 \
     --saturation 0.2 \
@@ -34,7 +34,7 @@ python3 ../main_pretrain.py \
     --gaussian_prob 1.0 0.1 \
     --solarization_prob 0.0 0.2 \
     --num_crops_per_aug 1 1 \
-    --name byol-400ep-custom \
+    --name byol-400ep-accida \
     --project solo-learn \
     --wandb \
     --save_checkpoint \
@@ -45,4 +45,4 @@ python3 ../main_pretrain.py \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0 \
     --min_scale 0.3 \
-    --dali 
+    # --dali 

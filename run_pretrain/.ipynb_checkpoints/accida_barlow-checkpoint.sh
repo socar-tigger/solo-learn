@@ -5,7 +5,7 @@ python3 ../main_pretrain.py \
     --train_dir Training  \
     --val_dir Test \
     --max_epochs 400 \
-    --gpus 0,1,2,3 \
+    --gpus 0,1 \
     --accelerator ddp \
     --sync_batchnorm \
     --num_workers 4 \
@@ -35,4 +35,4 @@ python3 ../main_pretrain.py \
     --proj_hidden_dim 2048 \
     --proj_output_dim 2048 \
     --min_scale 0.3 \
-    --dali 
+    # --dali 
