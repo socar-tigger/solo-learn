@@ -5,11 +5,11 @@
 python3 ../main_pretrain.py \
     --dataset custom \
     --encoder resnet50 \
-    --data_dir /home/jovyan/datasets/Accida_100 \
+    --data_dir ~/datasets/Accida_100 \
     --train_dir Training  \
     --val_dir Test \
-    --max_epochs 200 \
-    --gpus 0,1 \
+    --max_epochs 400 \
+    --gpus 0,1,2,3 \
     --accelerator ddp \
     --sync_batchnorm \
     --precision 16 \
@@ -34,7 +34,7 @@ python3 ../main_pretrain.py \
     --gaussian_prob 1.0 0.1 \
     --solarization_prob 0.0 0.2 \
     --num_crops_per_aug 1 1 \
-    --name byol-200ep-custom \
+    --name byol-400ep-custom \
     --project solo-learn \
     --wandb \
     --save_checkpoint \
@@ -44,4 +44,5 @@ python3 ../main_pretrain.py \
     --pred_hidden_dim 8192 \
     --base_tau_momentum 0.99 \
     --final_tau_momentum 1.0 \
-    --min_scale 0.4 
+    --min_scale 0.3 \
+    --dali 

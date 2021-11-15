@@ -1,7 +1,3 @@
-# Train without labels.
-# To train with labels, simply remove --no_labels
-# --val_dir is optional and will expect a directory with subfolder (classes)
-# --dali flag is also supported
 python3 ../main_pretrain.py \
     --dataset custom \
     --encoder resnet50 \
@@ -12,6 +8,7 @@ python3 ../main_pretrain.py \
     --gpus 0,1,2,3 \
     --accelerator ddp \
     --sync_batchnorm \
+    --num_workers 4 \
     --precision 16 \
     --optimizer sgd \
     --lars \
@@ -19,30 +16,23 @@ python3 ../main_pretrain.py \
     --eta_lars 0.02 \
     --exclude_bias_n_norm \
     --scheduler warmup_cosine \
-    --lr 1.0 \
-    --classifier_lr 0.1 \
-    --weight_decay 1e-5 \
+    --lr 0.3 \
+    --weight_decay 1e-4 \
     --batch_size 128 \
-    --num_workers 4 \
     --brightness 0.4 \
     --contrast 0.4 \
     --saturation 0.2 \
     --hue 0.1 \
-    --color_jitter_prob 0.8 \
-    --gray_scale_prob 0.2 \
-    --horizontal_flip_prob 0.5 \
     --gaussian_prob 1.0 0.1 \
     --solarization_prob 0.0 0.2 \
     --num_crops_per_aug 1 1 \
-    --name byol-400ep-custom \
+    --name barlow-400ep-accida \
     --project solo-learn \
     --wandb \
     --save_checkpoint \
-    --method byol \
-    --proj_output_dim 256 \
-    --proj_hidden_dim 4096 \
-    --pred_hidden_dim 8192 \
-    --base_tau_momentum 0.99 \
-    --final_tau_momentum 1.0 \
+    --scale_loss 0.1 \
+    --method barlow_twins \
+    --proj_hidden_dim 2048 \
+    --proj_output_dim 2048 \
     --min_scale 0.3 \
     --dali 
